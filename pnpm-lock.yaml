@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  react: ^18.2.0
+  typescript: ^4.7.4
+
 dependencies:
   '@emotion/react':
     specifier: ^11.9.3
@@ -432,7 +436,7 @@ packages:
     resolution: {integrity: sha512-t8AjMlF0gHpvvxk5mAtCqR4vmxiGHCeJBaQO6gncUSdklELOgtwjerNY2yuJNfwnc6vi16U/+uMF+afIawJ9iw==}
     peerDependencies:
       '@types/react': '*'
-      react: '>=16.8.0'
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -468,7 +472,7 @@ packages:
     peerDependencies:
       '@emotion/react': ^11.0.0-rc.0
       '@types/react': '*'
-      react: '>=16.8.0'
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -491,7 +495,7 @@ packages:
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.2.0):
     resolution: {integrity: sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==}
     peerDependencies:
-      react: '>=16.8.0'
+      react: ^18.2.0
     dependencies:
       react: 18.2.0
     dev: false
@@ -566,7 +570,7 @@ packages:
   /@floating-ui/react-dom@2.0.8(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
     peerDependencies:
-      react: '>=16.8.0'
+      react: ^18.2.0
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.6.3
@@ -686,7 +690,7 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
       react-dom: ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
       '@types/react':
@@ -714,7 +718,7 @@ packages:
     peerDependencies:
       '@mui/material': ^5.0.0
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -732,7 +736,7 @@ packages:
       '@emotion/react': ^11.5.0
       '@emotion/styled': ^11.3.0
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
       react-dom: ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
       '@emotion/react':
@@ -766,7 +770,7 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -784,7 +788,7 @@ packages:
     peerDependencies:
       '@emotion/react': ^11.4.1
       '@emotion/styled': ^11.3.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@emotion/react':
         optional: true
@@ -805,7 +809,7 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -838,7 +842,7 @@ packages:
       '@emotion/react': ^11.5.0
       '@emotion/styled': ^11.3.0
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@emotion/react':
         optional: true
@@ -877,7 +881,7 @@ packages:
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
+      react: ^18.2.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -987,7 +991,7 @@ packages:
     resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: ^18.0.0
+      react: ^18.2.0
       react-dom: ^18.0.0
     dependencies:
       '@babel/runtime': 7.24.1
@@ -2711,7 +2715,7 @@ packages:
   /formik@2.4.5(react@18.2.0):
     resolution: {integrity: sha512-Gxlht0TD3vVdzMDHwkiNZqJ7Mvg77xQNfmBRrNtvzcHZs72TJppSTDKHpImCMJZwcWPBJ8jSQQ95GJzXFf1nAQ==}
     peerDependencies:
-      react: '>=16.8.0'
+      react: ^18.2.0
     dependencies:
       '@types/hoist-non-react-statics': 3.3.5
       deepmerge: 2.2.1
@@ -3640,7 +3644,7 @@ packages:
     hasBin: true
     requiresBuild: true
     peerDependencies:
-      typescript: '>= 4.2.x <= 4.7.x'
+      typescript: ^4.7.4
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -4021,7 +4025,7 @@ packages:
   /react-query@3.39.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-nLfLz7GiohKTJDuT4us4X3h/8unOh+00MLb2yJoGTPjxKs2bc1iDhkNx2bd5MKklXnOD3NrVZ+J2UXujA5In4g==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^18.2.0
       react-dom: '*'
       react-native: '*'
     peerDependenciesMeta:
@@ -4046,7 +4050,7 @@ packages:
     resolution: {integrity: sha512-7ZILI7HjcE+p31oQvwbokjk6OA/bnFxrhJ19n82Ex9Ph8fNAq+Hm/7KchpMGlTgWhUxRHMMCut+vEtNpWpowKw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: ^18.2.0
       react-dom: '>=16.8'
     dependencies:
       '@remix-run/router': 1.15.3
@@ -4059,7 +4063,7 @@ packages:
     resolution: {integrity: sha512-dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: '>=16.8'
+      react: ^18.2.0
     dependencies:
       '@remix-run/router': 1.15.3
       react: 18.2.0
@@ -4068,7 +4072,7 @@ packages:
   /react-transition-group@4.4.5(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
-      react: '>=16.6.0'
+      react: ^18.2.0
       react-dom: '>=16.6.0'
     dependencies:
       '@babel/runtime': 7.24.1
@@ -4567,7 +4571,7 @@ packages:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
-      typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
+      typescript: ^4.7.4
     dependencies:
       tslib: 1.14.1
       typescript: 4.9.5
