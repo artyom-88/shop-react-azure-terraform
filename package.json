@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
+    "deploy": "pnpm run build && az storage blob upload-batch -s './dist' -d '$web' --account-name 'artemganevstorageacc0' --overwrite",
     "lint": "eslint --ignore-path .gitignore --fix src",
     "prettier": "prettier src --write",
-    "preview": "npm run build && vite preview",
+    "preview": "pnpm run build && vite preview",
     "start": "vite",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
