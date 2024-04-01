@@ -3,8 +3,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { render, RenderOptions } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { theme } from '~/theme';
+import { JSX, PropsWithChildren, ReactElement } from 'react';
 
-function Providers({ children }: { children: React.ReactElement }) {
+const Providers = ({ children }: PropsWithChildren): JSX.Element => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -22,8 +23,8 @@ function Providers({ children }: { children: React.ReactElement }) {
       </ThemeProvider>
     </QueryClientProvider>
   );
-}
+};
 
-export function renderWithProviders(ui: React.ReactElement, options?: RenderOptions) {
+export function renderWithProviders(ui: ReactElement, options?: RenderOptions) {
   return render(ui, { wrapper: Providers, ...options });
 }

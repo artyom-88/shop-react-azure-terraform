@@ -1,6 +1,7 @@
 {
   "name": "@shop-react-azure-terraform/client",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "build": "tsc && vite build",
     "deploy": "npm run build && az storage blob upload-batch -s './dist' -d '$web' --account-name 'learnazurestorageaccount00' --overwrite",
@@ -29,18 +30,18 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.2.1",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^1.3.2",
-    "@vitest/ui": "^0.18.0",
-    "c8": "^7.11.3",
-    "jsdom": "^20.0.0",
-    "msw": "^0.43.1",
-    "vite": "^2.9.13",
-    "vitest": "^0.17.1"
+    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/react": "14.2.2",
+    "@testing-library/user-event": "14.5.2",
+    "@types/react": "18.2.73",
+    "@types/react-dom": "18.2.23",
+    "@vitejs/plugin-react": "4.2.1",
+    "@vitest/ui": "1.4.0",
+    "c8": "9.1.0",
+    "jsdom": "24.0.0",
+    "msw": "2.2.13",
+    "vite": "5.2.7",
+    "vitest": "1.4.0"
   },
   "overrides": {
     "react": "$react"
