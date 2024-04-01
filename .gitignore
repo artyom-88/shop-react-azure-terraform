@@ -31,4 +31,5 @@ __azurite_db*__.json
 
 .terraform
 terraform.tfstate*
+.terraform.tfstate.lock.info
 local.settings.json
