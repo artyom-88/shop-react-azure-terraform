@@ -1,11 +1,7 @@
-import MuiTextField, {
-  TextFieldProps as MuiTextFieldProps,
-} from "@mui/material/TextField";
-import { FieldProps, getIn } from "formik";
+import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
+import { FieldProps, getIn } from 'formik';
 
-export interface TextFieldProps
-  extends FieldProps,
-    Omit<MuiTextFieldProps, "name" | "value" | "error"> {}
+export interface TextFieldProps extends FieldProps, Omit<MuiTextFieldProps, 'name' | 'value' | 'error'> {}
 
 export function fieldToTextField({
   disabled,
@@ -28,7 +24,7 @@ export function fieldToTextField({
         fieldOnBlur(e ?? field.name);
       },
     ...field,
-    value: field.value ?? "",
+    value: field.value ?? '',
     ...props,
   };
 }
