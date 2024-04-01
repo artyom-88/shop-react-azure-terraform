@@ -13,19 +13,19 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "learn_azure_rg" {
-  name     = "rg-learn-azure-eu-0"
+resource "azurerm_resource_group" "learn_azure_terraform_rg" {
+  name     = "rg-learn-azure-terraform-1"
   location = "eastus"
 }
 
-resource "azurerm_storage_account" "learn_azure_storage_account" {
-  name                     = "learnstorageaccount0"
-  location                 = azurerm_resource_group.learn_azure_rg.location
+resource "azurerm_storage_account" "learn_azure_terraform" {
+  name                     = "learnazureterraform1"
+  location                 = azurerm_resource_group.learn_azure_terraform_rg.location
 
   account_replication_type = "LRS"
   account_tier             = "Standard"
   account_kind             = "StorageV2"
-  resource_group_name      = azurerm_resource_group.learn_azure_rg.name
+  resource_group_name      = azurerm_resource_group.learn_azure_terraform_rg.name
 
   static_website {
     index_document = "index.html"
