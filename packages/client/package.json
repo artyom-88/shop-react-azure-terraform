@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "deploy": "npm run build && az storage blob upload-batch -s './dist' -d '$web' --account-name 'learnazurestorageaccount00' --overwrite",
+    "deploy": "npm run build && az storage blob upload-batch -s './dist' -d '$web' --account-name 'learnstorageaccount00' --overwrite",
     "lint": "eslint 'src/**/*.{tsx,ts}' --quiet --max-warnings 1",
     "lint:fix": "eslint 'src/**/*.{tsx,ts}' --fix ",
     "lint:warn": "eslint 'src/**/*.{tsx,ts}'",
