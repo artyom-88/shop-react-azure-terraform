@@ -4,10 +4,11 @@
   "description": "",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
+    "deploy": "func azure functionapp publish fa-learn-azure-terraform-0",
     "prestart": "npm run build",
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "echo \"No tests yet...\"",
+    "watch": "tsc -w"
   },
   "dependencies": {},
   "devDependencies": {
