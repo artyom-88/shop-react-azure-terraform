@@ -81,7 +81,10 @@ resource "azurerm_windows_function_app" "learn_azure_terraform_service" {
 
     # Enable function invocations from Azure Portal.
     cors {
-      allowed_origins = ["https://portal.azure.com"]
+      allowed_origins = [
+        "https://portal.azure.com",
+        "https://learnazureterraform1.z13.web.core.windows.net"
+      ]
     }
 
     application_stack {
