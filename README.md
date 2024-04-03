@@ -40,5 +40,3 @@ Runs linting and formatting for all files in `src` folder.
 ### `deploy`
 
 Runs build and deploy to Azure Blob
-
-@shop-react-azure-terraform/functions

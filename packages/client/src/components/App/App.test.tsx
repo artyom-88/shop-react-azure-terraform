@@ -3,7 +3,7 @@ import { expect, test } from 'vitest';
 import App from '~/components/App/App';
 import { server } from '~/mocks/server';
 import { http, HttpResponse } from 'msw';
-import API_PATHS from '~/constants/apiPaths';
+import API_PATHS, { API_PARAMS, API_URL } from '~/constants/apiPaths';
 import { CartItem } from '~/models/CartItem';
 import { AvailableProduct } from '~/models/Product';
 import { renderWithProviders } from '~/testUtils';
@@ -28,7 +28,7 @@ test('Renders products list', async () => {
     },
   ];
   server.use(
-    http.get(`${API_PATHS.bff}/product/available`, () => {
+    http.get(`${API_URL}/products?${API_PARAMS}`, () => {
       return HttpResponse.json<AvailableProduct[]>(products, { status: 200 });
     }),
     http.get(`${API_PATHS.cart}/profile/cart`, () => {
