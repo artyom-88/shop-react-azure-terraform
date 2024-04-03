@@ -1,3 +1,7 @@
+export const API_CODE = import.meta.env.VITE_API_CODE;
+export const API_URL = import.meta.env.VITE_API_URL;
+export const API_PARAMS = `code=${API_CODE}&clientId=default`;
+
 const API_PATHS = {
   product: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
   order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
