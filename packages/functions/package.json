@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf dist",
     "deploy": "func azure functionapp publish fa-learn-azure-terraform-0",
     "prestart": "npm run build",
     "start": "func start",

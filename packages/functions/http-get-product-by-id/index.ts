@@ -1,4 +1,4 @@
-import { AzureFunction, Context } from '@azure/functions';
+import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
 type Product = {
   id: string;
@@ -28,11 +28,13 @@ const productsMock: Product[] = [
   },
 ];
 
-const httpTrigger: AzureFunction = async function (context: Context): Promise<void> {
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
   context.log('HTTP trigger function processed a request.');
+  const { productId } = req.params;
+  const product = productsMock.find(({ id }) => productId === id);
   context.res = {
-    status: 200,
-    body: productsMock,
+    status: product ? 200 : 404,
+    body: product,
   };
 };
 
