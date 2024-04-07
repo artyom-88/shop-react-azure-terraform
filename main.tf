@@ -144,3 +144,10 @@ resource "azurerm_windows_function_app_slot" "learn_azure_terraform" {
     ]
   }
 }
+
+resource "azurerm_app_configuration" "learn_azure_terraform" {
+  name                = "appconfig-learn-azure-terraform"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  location            = azurerm_resource_group.learn_azure_terraform_rg.location
+  sku = "free"
+}

@@ -17,5 +17,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/http-get-product-list/index.js",
+  "scriptFile": "../dist/http-get-product-list/index.js"
 }

@@ -1,9 +1,6 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=10"
@@ -17,6 +14,7 @@
     "lerna:clean": "npm run build:clean && lerna clean --yes",
     "lint": "lerna run --parallel lint",
     "lint:fix": "lerna run --parallel lint:fix",
+    "postinstall": "cp -R \"./node_modules/@azure/app-configuration\" \"./packages/functions/node_modules/@azure/app-configuration\"",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "test": "lerna run --parallel test"

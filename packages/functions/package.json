@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
-    "deploy": "func azure functionapp publish fa-learn-azure-terraform-0",
-    "deploy:staging": "func azure functionapp publish fa-learn-azure-terraform-0 --slot \"staging\"",
+    "deploy": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0",
+    "deploy:staging": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0 --slot \"staging\"",
     "prestart": "npm run build",
     "slot:list": "az functionapp deployment slot list --name \"fa-learn-azure-terraform-0\" --resource-group \"rg-learn-azure-terraform-1\"",
     "slot:prod": "az functionapp deployment slot swap -g \"rg-learn-azure-terraform-1\" -n \"fa-learn-azure-terraform-0\" --slot \"staging\" --target-slot \"\"",
@@ -15,10 +15,12 @@
     "test": "echo \"No tests yet...\"",
     "watch": "tsc -w"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@azure/app-configuration": "^1.5.0"
+  },
   "devDependencies": {
     "@azure/functions": "^3.0.0",
-    "azure-functions-core-tools": "^4.x",
-    "@types/node": "18.x"
+    "@types/node": "18.x",
+    "azure-functions-core-tools": "^4.x"
   }
 }
