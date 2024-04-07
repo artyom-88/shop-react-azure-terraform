@@ -111,7 +111,7 @@ resource "azurerm_windows_function_app" "learn_azure_terraform_service" {
 }
 
 resource "azurerm_windows_function_app_slot" "learn_azure_terraform" {
-  name                       = "app-slot-learn-azure-terraform"
+  name                       = "staging"
   function_app_id      = azurerm_windows_function_app.learn_azure_terraform_service.id
   storage_account_name = azurerm_storage_account.learn_azure_terraform.name
 

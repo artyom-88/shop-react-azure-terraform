@@ -9,6 +9,7 @@
     "npm": ">=10"
   },
   "scripts": {
+    "account:show": "az storage account show -n \"learnazureterraform1\" -g \"rg-learn-azure-terraform-1\" --query \"primaryEndpoints.web\"",
     "build": "npm run build:clean && lerna run build",
     "build:clean": "lerna exec --no-bail -- rimraf dist/**",
     "deploy": "lerna run deploy",
