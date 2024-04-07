@@ -109,3 +109,38 @@ resource "azurerm_windows_function_app" "learn_azure_terraform_service" {
     ]
   }
 }
+
+resource "azurerm_windows_function_app_slot" "learn_azure_terraform" {
+  name                       = "app-slot-learn-azure-terraform"
+  function_app_id      = azurerm_windows_function_app.learn_azure_terraform_service.id
+  storage_account_name = azurerm_storage_account.learn_azure_terraform.name
+
+  site_config {
+    always_on = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].always_on
+
+    application_insights_key               = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].application_insights_key
+    application_insights_connection_string = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].application_insights_connection_string
+
+    use_32_bit_worker = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].use_32_bit_worker
+
+    cors {
+      allowed_origins = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].cors[0].allowed_origins
+    }
+
+    application_stack {
+      node_version = azurerm_windows_function_app.learn_azure_terraform_service.site_config[0].application_stack[0].node_version
+    }
+  }
+
+  app_settings = azurerm_windows_function_app.learn_azure_terraform_service.app_settings
+
+  lifecycle {
+    ignore_changes = [
+      app_settings,
+      site_config["application_stack"], // workaround for a bug when azure just "kills" your app
+      tags["hidden-link: /app-insights-instrumentation-key"],
+      tags["hidden-link: /app-insights-resource-id"],
+      tags["hidden-link: /app-insights-conn-string"]
+    ]
+  }
+}
