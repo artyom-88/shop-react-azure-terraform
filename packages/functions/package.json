@@ -9,6 +9,8 @@
     "deploy:staging": "func azure functionapp publish fa-learn-azure-terraform-0 --slot \"staging\"",
     "prestart": "npm run build",
     "slot:list": "az functionapp deployment slot list --name \"fa-learn-azure-terraform-0\" --resource-group \"rg-learn-azure-terraform-1\"",
+    "slot:prod": "az functionapp deployment slot swap -g \"rg-learn-azure-terraform-1\" -n \"fa-learn-azure-terraform-0\" --slot \"staging\" --target-slot \"\"",
+    "slot:staging": "az functionapp deployment slot swap -g \"rg-learn-azure-terraform-1\" -n \"fa-learn-azure-terraform-0\" --slot \"staging\" --target-slot \"production\"",
     "start": "func start",
     "test": "echo \"No tests yet...\"",
     "watch": "tsc -w"
