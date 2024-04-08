@@ -151,3 +151,81 @@ resource "azurerm_app_configuration" "learn_azure_terraform" {
   location            = azurerm_resource_group.learn_azure_terraform_rg.location
   sku = "free"
 }
+
+resource "azurerm_api_management" "learn_azure_terraform" {
+  location        = azurerm_resource_group.learn_azure_terraform_rg.location
+  name            = "apim-learn-azure-terraform-1"
+  publisher_email = "artem_ganev@epam.com"
+  publisher_name  = "Artem Ganev"
+
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  sku_name            = "Consumption_0"
+}
+
+resource "azurerm_api_management_api" "learn_azure_terraform" {
+  api_management_name = azurerm_api_management.learn_azure_terraform.name
+  name                = "products-service-api"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  revision            = "1"
+
+  display_name = "Products Service API"
+
+  protocols = ["https"]
+}
+
+data "azurerm_function_app_host_keys" "learn_azure_terraform" {
+  name = azurerm_windows_function_app.learn_azure_terraform_service.name
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+}
+
+resource "azurerm_api_management_backend" "learn_azure_terraform" {
+  name = "products-service-backend"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  api_management_name = azurerm_api_management.learn_azure_terraform.name
+  protocol = "http"
+  url = "https://${azurerm_windows_function_app.learn_azure_terraform_service.name}.azurewebsites.net/api"
+  description = "Products API"
+
+  credentials {
+    certificate = []
+    query = {}
+
+    header = {
+      "x-functions-key" = data.azurerm_function_app_host_keys.learn_azure_terraform.default_function_key
+    }
+  }
+}
+
+resource "azurerm_api_management_api_policy" "api_policy" {
+  api_management_name = azurerm_api_management.learn_azure_terraform.name
+  api_name            = azurerm_api_management_api.learn_azure_terraform.name
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+
+  xml_content = <<XML
+ <policies>
+    <inbound>
+        <set-backend-service backend-id="${azurerm_api_management_backend.learn_azure_terraform.name}"/>
+        <base/>
+    </inbound>
+    <backend>
+        <base/>
+    </backend>
+    <outbound>
+        <base/>
+    </outbound>
+    <on-error>
+        <base/>
+    </on-error>
+ </policies>
+XML
+}
+
+resource "azurerm_api_management_api_operation" "get_products" {
+  api_management_name = azurerm_api_management.learn_azure_terraform.name
+  api_name            = azurerm_api_management_api.learn_azure_terraform.name
+  display_name        = "Get Products"
+  method              = "GET"
+  operation_id        = "get-products"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  url_template        = "/products"
+}
