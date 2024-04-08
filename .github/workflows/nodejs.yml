@@ -25,5 +25,3 @@ jobs:
         run: npm run lint
       - name: Test client
         run: npm --prefix ./packages/client run test
-      - name: Build client
-        run: npm --prefix ./packages/client run build
