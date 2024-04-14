@@ -229,3 +229,47 @@ resource "azurerm_api_management_api_operation" "get_products" {
   resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
   url_template        = "/products"
 }
+
+resource "azurerm_cosmosdb_account" "learn_azure_terraform" {
+  location            = azurerm_resource_group.learn_azure_terraform_rg.location
+  name                = "cos-learn-azure-terraform-1"
+  offer_type          = "Standard"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+  kind                = "GlobalDocumentDB"
+
+  consistency_policy {
+    consistency_level = "Eventual"
+  }
+
+  capabilities {
+    name = "EnableServerless"
+  }
+
+  geo_location {
+    failover_priority = 0
+    location          = "East US"
+  }
+}
+
+resource "azurerm_cosmosdb_sql_database" "learn_azure_terraform" {
+  account_name        = azurerm_cosmosdb_account.learn_azure_terraform.name
+  name                = "products-db"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+}
+
+
+resource "azurerm_cosmosdb_sql_container" "learn_azure_terraform" {
+  account_name        = azurerm_cosmosdb_account.learn_azure_terraform.name
+  database_name       = azurerm_cosmosdb_sql_database.learn_azure_terraform.name
+  name                = "products"
+  partition_key_path  = "/id"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+
+  default_ttl = -1
+
+  indexing_policy {
+    excluded_path {
+      path = "/*"
+    }
+  }
+}
