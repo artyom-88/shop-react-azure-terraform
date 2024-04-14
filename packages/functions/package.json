@@ -1,0 +1,26 @@
+{
+  "name": "@shop-react-azure-terraform/functions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf dist",
+    "deploy": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0",
+    "deploy:staging": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0 --slot \"staging\"",
+    "prestart": "npm run build",
+    "slot:list": "az functionapp deployment slot list --name \"fa-learn-azure-terraform-0\" --resource-group \"rg-learn-azure-terraform-1\"",
+    "slot:prod": "az functionapp deployment slot swap -g \"rg-learn-azure-terraform-1\" -n \"fa-learn-azure-terraform-0\" --slot \"staging\" --target-slot \"\"",
+    "slot:staging": "az functionapp deployment slot swap -g \"rg-learn-azure-terraform-1\" -n \"fa-learn-azure-terraform-0\" --slot \"staging\" --target-slot \"production\"",
+    "start": "func start",
+    "test": "echo \"No tests yet...\"",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@azure/app-configuration": "^1.5.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^3.0.0",
+    "@types/node": "18.x",
+    "azure-functions-core-tools": "^4.x"
+  }
+}

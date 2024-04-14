@@ -1,12 +1,12 @@
 import axios, { AxiosError } from 'axios';
-import API_PATHS from '~/constants/apiPaths';
+import API_PATHS, { API_PARAMS, API_URL } from '~/constants/apiPaths';
 import { AvailableProduct } from '~/models/Product';
-import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import React from 'react';
 
 export function useAvailableProducts() {
   return useQuery<AvailableProduct[], AxiosError>('available-products', async () => {
-    const res = await axios.get<AvailableProduct[]>(`${API_PATHS.bff}/product/available`);
+    const res = await axios.get<AvailableProduct[]>(`${API_URL}/products?${API_PARAMS}`);
     return res.data;
   });
 }
@@ -20,7 +20,7 @@ export function useAvailableProduct(id?: string) {
   return useQuery<AvailableProduct, AxiosError>(
     ['product', { id }],
     async () => {
-      const res = await axios.get<AvailableProduct>(`${API_PATHS.bff}/product/${id}`);
+      const res = await axios.get<AvailableProduct>(`${API_URL}/products/${id}?${API_PARAMS}`);
       return res.data;
     },
     { enabled: !!id },

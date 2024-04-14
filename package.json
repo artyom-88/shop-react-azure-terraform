@@ -5,6 +5,7 @@
     "npm": ">=10"
   },
   "scripts": {
+    "account:show": "az storage account show -n \"learnazureterraform1\" -g \"rg-learn-azure-terraform-1\" --query \"primaryEndpoints.web\"",
     "lint": "eslint 'packages/**/*.{tsx,ts}' --quiet --max-warnings 1",
     "lint:fix": "eslint 'packages/**/*.{tsx,ts}' --fix ",
     "pre-commit": "lint-staged",

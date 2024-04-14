@@ -24,6 +24,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Azurite artifacts
+__blobstorage__
+__queuestorage__
+__azurite_db*__.json
+
 .terraform
 terraform.tfstate*
 .terraform.tfstate.lock.info
