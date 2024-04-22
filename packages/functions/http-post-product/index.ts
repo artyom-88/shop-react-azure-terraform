@@ -49,7 +49,7 @@ const createProduct = async (context: Context, dto: Product) => {
 };
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-  context.log('HTTP trigger function processed a request.');
+  context.log('Post product triggered');
   const { body } = req;
   const error = getError(context, body);
   if (error) {

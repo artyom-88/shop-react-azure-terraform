@@ -4,7 +4,7 @@ import { FeedResponse } from '@azure/cosmos';
 import { Product, Stock } from '../types';
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-  context.log('HTTP trigger function processed a request.');
+  context.log('Get product triggered');
   const dbClient = await createDbClient(context);
   const productContainer = dbClient.database(DB_ID).container(PRODUCTS_CONTAINER_ID);
   const { productId } = req.params;
