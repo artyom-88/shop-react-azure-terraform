@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
+    "db:init": "node init-db.js",
     "deploy": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0",
     "deploy:staging": "npm run build && func azure functionapp publish fa-learn-azure-terraform-0 --slot \"staging\"",
     "prestart": "npm run build",
@@ -16,11 +17,14 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@azure/app-configuration": "^1.5.0"
+    "@azure/app-configuration": "^1.5.0",
+    "@azure/cosmos": "^4.0.0"
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",
     "@types/node": "18.x",
-    "azure-functions-core-tools": "^4.x"
+    "azure-functions-core-tools": "^4.x",
+    "dotenv": "^16.4.5",
+    "uuid": "^9.0.1"
   }
 }

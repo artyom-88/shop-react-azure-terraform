@@ -258,10 +258,26 @@ resource "azurerm_cosmosdb_sql_database" "learn_azure_terraform" {
 }
 
 
-resource "azurerm_cosmosdb_sql_container" "learn_azure_terraform" {
+resource "azurerm_cosmosdb_sql_container" "products" {
   account_name        = azurerm_cosmosdb_account.learn_azure_terraform.name
   database_name       = azurerm_cosmosdb_sql_database.learn_azure_terraform.name
   name                = "products"
+  partition_key_path  = "/id"
+  resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
+
+  default_ttl = -1
+
+  indexing_policy {
+    excluded_path {
+      path = "/*"
+    }
+  }
+}
+
+resource "azurerm_cosmosdb_sql_container" "stock" {
+  account_name        = azurerm_cosmosdb_account.learn_azure_terraform.name
+  database_name       = azurerm_cosmosdb_sql_database.learn_azure_terraform.name
+  name                = "stock"
   partition_key_path  = "/id"
   resource_group_name = azurerm_resource_group.learn_azure_terraform_rg.name
 
