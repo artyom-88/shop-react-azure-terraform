@@ -18,13 +18,14 @@
   },
   "dependencies": {
     "@azure/app-configuration": "^1.5.0",
-    "@azure/cosmos": "^4.0.0"
+    "@azure/cosmos": "^4.0.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",
     "@types/node": "18.x",
+    "@types/uuid": "^9.0.8",
     "azure-functions-core-tools": "^4.x",
-    "dotenv": "^16.4.5",
-    "uuid": "^9.0.1"
+    "dotenv": "^16.4.5"
   }
 }
