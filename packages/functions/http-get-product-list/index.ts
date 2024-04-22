@@ -15,7 +15,7 @@ const httpTrigger: AzureFunction = async function (context: Context): Promise<vo
 
   products.forEach((product: ProductDTO) => {
     const productStock = stocks.find((stock) => stock.product_id === product.id);
-    product.count = productStock ? productStock.count : 0;
+    product.count = productStock?.count ?? 0;
   });
 
   context.res = {

@@ -19,3 +19,5 @@ export const createDbClient = async (context: Context): Promise<CosmosClient> =>
   context.log('DB client created.');
   return client;
 };
+
+export const createQueryById = (id: string) => `SELECT * FROM c WHERE c.id='${id}'`;
