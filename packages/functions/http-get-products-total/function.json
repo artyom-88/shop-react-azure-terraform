@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "products"
+      "route": "products/total"
     },
     {
       "type": "http",
@@ -16,5 +16,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/http-get-product-list/index.js"
+  "scriptFile": "../dist/http-get-products-total/index.js"
 }

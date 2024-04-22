@@ -6,10 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
-        "post"
+        "get"
       ],
-      "route": "products/{productId}"
+      "route": "products/{productId:guid}"
     },
     {
       "type": "http",
